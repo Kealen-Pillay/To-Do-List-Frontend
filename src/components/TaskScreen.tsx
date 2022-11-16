@@ -50,6 +50,7 @@ const TaskScreen = () => {
 
   const getTasks = async () => {
     let user = auth?.currentUser?.email;
+    console.log("user", user);
     let url = "https://wandering-worm-beanie.cyclic.app/?owner=" + user;
     await axios
       .get(url)
@@ -252,7 +253,7 @@ const TaskScreen = () => {
           overflow: "scroll",
         }}
       >
-        {tasks.map((task) => {
+        {tasks && tasks.map((task) => {
           return (
             <>
               <Button
